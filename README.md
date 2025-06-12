@@ -6,19 +6,13 @@ This project is built with **Next.js** and includes a simple authentication syst
 
 ## ⚙️ Getting Started
 
-Install dependencies:
-npm install
+### Install dependencies:
 
-# or
+npm install or yarn install
 
-yarn install
+### Run the development server:
 
-Run the development server:
-npm run dev
-
-# or
-
-yarn dev
+npm run dev or yarn dev
 
 ---
 
