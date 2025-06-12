@@ -12,6 +12,8 @@ import ErrorMessage from './components/ErrorMessage';
 import Select from './components/Select';
 import * as S from './styles';
 
+type FormFieldValue = string | File | null;
+
 
 const visaOptions = [
     'H-1B', 'L-1', 'O-1', 'TN', 'E-2', 'E-3', 'F-1 OPT', 'J-1', 'Green Card', 'Other'
@@ -51,7 +53,7 @@ export default function LeadForm() {
     }
 
 
-    const handleChange = (field: keyof typeof state, value: any) => {
+    const handleChange = (field: keyof typeof state, value: FormFieldValue) => {
         dispatch({ type: 'SET_FIELD', field, value });
     };
 

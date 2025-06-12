@@ -11,7 +11,7 @@ interface FormState {
     additionalInfo: string;
 }
 
-// Ajustando para tipos que podem ser atribuídos aos campos do formulário
+
 type FormFieldValue = string | File | null;
 
 type Action =
@@ -43,7 +43,7 @@ function formReducer(state: FormState, action: Action): FormState {
     }
 }
 
-// Substituindo any por unknown para manter tipagem segura
+
 interface FormContextProps {
     state: FormState;
     dispatch: Dispatch<Action>;
