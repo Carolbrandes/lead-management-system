@@ -34,14 +34,14 @@ export default function LeadForm() {
         try {
             const response = await fetch('https://restcountries.com/v3.1/all?fields=name');
             const countries = await response.json();
-            console.log("🚀 ~ getServerSideProps ~ countries:", countries)
+
 
             const countriesByAlphabeticOrder = countries.sort((a, b) => {
                 if (a.name.official < b.name.official) return -1;
                 if (a.name.official > b.name.official) return 1;
                 return 0;
             }).map((country) => country.name.official)
-            console.log("🚀 ~ countriesByAlphabeticOrder ~ countriesByAlphabeticOrder:", countriesByAlphabeticOrder)
+
 
             setCountries(countriesByAlphabeticOrder)
         } catch (error) {
@@ -82,7 +82,7 @@ export default function LeadForm() {
             }
             formData.append('additionalInfo', state.additionalInfo);
 
-            console.log("🚀 ~ handleSubmit ~ formData:", formData)
+
             const response = await fetch('/api/leads', {
                 method: 'POST',
                 body: formData,

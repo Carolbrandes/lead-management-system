@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'PUT') {
         try {
             const leadsData = fs.readFileSync(leadsFilePath, 'utf8');
-            let leads = JSON.parse(leadsData);
+            const leads = JSON.parse(leadsData);
 
             const leadIndex = leads.findIndex(lead => lead.id === id);
             if (leadIndex === -1) {
@@ -26,6 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             fs.writeFileSync(leadsFilePath, JSON.stringify(leads, null, 2));
             res.status(200).json(leads[leadIndex]);
         } catch (error) {
+            console.error("🚀 ~ handler ~ error:", error)
             res.status(500).json({ message: 'Error updating lead' });
         }
     } else {

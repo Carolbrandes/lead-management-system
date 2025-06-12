@@ -24,7 +24,7 @@ export default function Login() {
 
 
     const onSubmit = async (data: FormData) => {
-        console.log("🚀 ~ onSubmit ~ data:", data)
+
         try {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
@@ -43,6 +43,7 @@ export default function Login() {
                 setError('Login failed');
             }
         } catch (error) {
+            console.error("🚀 ~ onSubmit ~ error:", error)
             setError('Login failed');
         }
     };

@@ -24,6 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const leads = JSON.parse(leadsData);
             res.status(200).json(leads);
         } catch (error) {
+            console.error("🚀 ~ handler ~ error:", error)
             res.status(500).json({ message: 'Error reading leads data' });
         }
     } else if (req.method === 'POST') {

@@ -11,8 +11,11 @@ interface FormState {
     additionalInfo: string;
 }
 
+// Ajustando para tipos que podem ser atribuídos aos campos do formulário
+type FormFieldValue = string | File | null;
+
 type Action =
-    | { type: 'SET_FIELD'; field: keyof FormState; value: any }
+    | { type: 'SET_FIELD'; field: keyof FormState; value: FormFieldValue }
     | { type: 'SET_VISAS'; value: string[] }
     | { type: 'RESET_FORM' }
 
@@ -25,7 +28,7 @@ const initialState: FormState = {
     visas: [],
     resume: null,
     additionalInfo: '',
-}
+};
 
 function formReducer(state: FormState, action: Action): FormState {
     switch (action.type) {
@@ -40,24 +43,22 @@ function formReducer(state: FormState, action: Action): FormState {
     }
 }
 
+// Substituindo any por unknown para manter tipagem segura
 interface FormContextProps {
     state: FormState;
     dispatch: Dispatch<Action>;
-    errors: Record<string, any>;
-    setErrors: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+    errors: Record<string, unknown>;
+    setErrors: React.Dispatch<React.SetStateAction<Record<string, unknown>>>;
 }
 
 export const FormContext = createContext<Partial<FormContextProps>>({});
 
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [state, dispatch] = useReducer(formReducer, initialState);
-    const [errors, setErrors] = useState<Record<string, any>>({});
+    const [errors, setErrors] = useState<Record<string, unknown>>({});
 
     return (
-        <FormContext.Provider value={{
-            state, dispatch, errors,
-            setErrors
-        }}>
+        <FormContext.Provider value={{ state, dispatch, errors, setErrors }}>
             {children}
         </FormContext.Provider>
     );

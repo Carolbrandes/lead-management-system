@@ -8,7 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export default function Input(props: InputProps) {
     const { className, isError, ...restProps } = props;
-    console.log("🚀 ~ Input ~ isError:", isError)
+
     return (
         <S.Input
             isError={isError}
