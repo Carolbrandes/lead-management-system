@@ -3,8 +3,19 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as S from './styles';
 
+
+interface Lead {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    linkedIn: string;
+    visas: string[];
+    status: 'PENDING' | 'REACHED_OUT' | string;
+}
+
 export default function AdminDashboard() {
-    const [leads, setLeads] = useState([]);
+    const [leads, setLeads] = useState<Lead[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -27,7 +38,7 @@ export default function AdminDashboard() {
     const fetchLeads = async () => {
         try {
             const response = await fetch('/api/leads');
-            const data = await response.json();
+            const data: Lead[] = await response.json();
             setLeads(data);
         } catch (error) {
             console.error('Error fetching leads:', error);
