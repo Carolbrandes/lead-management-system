@@ -4,6 +4,24 @@ This project is built with **Next.js** and includes a simple authentication syst
 
 ---
 
+## ⚙️ Getting Started
+
+Install dependencies:
+npm install
+
+# or
+
+yarn install
+
+Run the development server:
+npm run dev
+
+# or
+
+yarn dev
+
+---
+
 ## Test Credentials
 
 Use the following credentials to log in:
