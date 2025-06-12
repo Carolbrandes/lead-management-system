@@ -31,6 +31,10 @@ Use the following credentials to log in:
 
 ---
 
+## Vercel Link
+
+https://lead-management-system-alpha.vercel.app/
+
 ## Project Structure
 
 The project is organized inside the `src` folder as follows:
