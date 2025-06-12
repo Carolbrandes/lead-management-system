@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { PropsWithChildren, useEffect } from 'react';
 
-export default function AuthWrapper({ children }: PropsWithChildren<{}>) {
+export default function AuthWrapper({ children }: PropsWithChildren<object>) {
     const router = useRouter();
 
     useEffect(() => {
