@@ -55,13 +55,13 @@ export default function Login() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
 
-                    <Input placeholder='Username' id="username" {...register('username')} />
+                    <Input placeholder='Username' id="username" {...register('username')} isError={errors.username ? true : false} />
 
                     {errors.username && <span className="error-message">{errors.username.message}</span>}
                 </div>
                 <div className="form-group">
 
-                    <Input placeholder='Password' id="password" type="password" {...register('password')} />
+                    <Input placeholder='Password' id="password" type="password" {...register('password')} isError={errors.password ? true : false} />
 
                     {errors.password && <span className="error-message">{errors.password.message}</span>}
                 </div>
