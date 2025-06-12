@@ -36,7 +36,7 @@ export default function AdminDashboard() {
         }
     };
 
-    const updateLeadStatus = async (leadId, newStatus) => {
+    const updateLeadStatus = async (leadId: string, newStatus: string): Promise<void> => {
         try {
             await fetch(`/api/leads/${leadId}`, {
                 method: 'PUT',
